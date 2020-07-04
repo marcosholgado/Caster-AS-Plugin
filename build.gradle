@@ -16,7 +16,8 @@ dependencies {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2020.1.1'
+    plugins = ['Kotlin', 'android']
+    localPath '/Applications/Android Studio Preview.App/Contents'
 }
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
