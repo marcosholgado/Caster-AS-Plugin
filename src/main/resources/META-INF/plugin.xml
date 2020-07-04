@@ -19,6 +19,34 @@
     </extensions>
 
     <actions>
-        <!-- Add your actions here -->
+        <action
+                class="org.example.myplugin.actions.HelloWorldAction"
+                id="SecondAction"
+                text="_Second Action"
+                description="A second action that shows a notification" />
+
+        <group id="MyPlugin.TopMenu"
+               text="_My New Plugin"
+               description="My plugin toolbar menu">
+
+            <reference ref="SecondAction" />
+            <separator />
+            <action
+                    class="org.example.myplugin.actions.HelloWorldAction"
+                    id="DemoAction"
+                    text="_This Is A Test Action"
+                    description="A test action that shows a notification">
+                <keyboard-shortcut first-keystroke="control alt p" keymap="$default"/>
+            </action>
+            <add-to-group group-id="MainMenu" anchor="last"/>
+        </group>
+
+        <group id="SecondGroup"
+               text="_My Second Group"
+               popup="true">
+            <add-to-group group-id="MyPlugin.TopMenu" anchor="first"/>
+            <reference ref="SecondAction"/>
+        </group>
+
     </actions>
 </idea-plugin>
