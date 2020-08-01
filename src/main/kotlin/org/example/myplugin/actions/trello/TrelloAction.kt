@@ -5,6 +5,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 
 class TrelloAction: AnAction() {
     override fun actionPerformed(p0: AnActionEvent) {
-        TODO("Create a new dialog")
+        val dialog = TrelloForm(p0.project!!, TrelloInjectorImp())
+        dialog.show()
     }
 }
