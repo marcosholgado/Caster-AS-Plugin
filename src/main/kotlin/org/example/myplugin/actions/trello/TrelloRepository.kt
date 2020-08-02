@@ -1,17 +1,29 @@
 package org.example.myplugin.actions.trello
 
+import hu.akarnokd.rxjava2.swing.SwingSchedulers
+import io.reactivex.Completable
+import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
+
 interface TrelloRepository {
-    fun getCards(): List<Card>
-    fun moveCard()
+    fun getCards(fromListId: String, key: String, token: String): Single<List<Card>>
+    fun moveCard(cardId: String, toListId: String, key: String, token: String): Completable
 }
 
-class TrelloRepositoryImp(): TrelloRepository {
-    override fun getCards(): List<Card> {
-        TODO("Not yet implemented")
+class TrelloRepositoryImp(
+    private val trelloServiceApi: TrelloServiceApi
+): TrelloRepository {
+
+    override fun getCards(fromListId: String, key: String, token: String): Single<List<Card>> {
+        return trelloServiceApi.getCards(fromListId, key, token)
+            .subscribeOn(Schedulers.io())
+            .observeOn(SwingSchedulers.edt())
     }
 
-    override fun moveCard() {
-        TODO("Not yet implemented")
+    override fun moveCard(cardId: String, toListId: String, key: String, token: String): Completable {
+        return trelloServiceApi.moveCardToList(cardId, toListId, key, token)
+            .subscribeOn(Schedulers.io())
+            .observeOn(SwingSchedulers.edt())
     }
 
 }
