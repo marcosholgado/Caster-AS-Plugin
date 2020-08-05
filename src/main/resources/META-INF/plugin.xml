@@ -16,6 +16,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+
+        <projectService serviceImplementation="org.example.myplugin.services.TrelloService" />
     </extensions>
 
     <actions>

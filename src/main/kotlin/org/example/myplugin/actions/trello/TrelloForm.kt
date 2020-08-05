@@ -12,8 +12,8 @@ import java.awt.Dimension
 import javax.swing.*
 
 class TrelloForm(
-        val project: Project,
-        trelloInjector: TrelloInjector
+    private val project: Project,
+    trelloInjector: TrelloInjector
 ): DialogWrapper(project), TrelloFormView {
 
     private var nameCombo: ComboBox<Card> = ComboBox<Card>().apply {
@@ -25,7 +25,7 @@ class TrelloForm(
     }
 
     private val presenter: TrelloActionPresenter by lazy {
-        trelloInjector.trelloActionPresenter(this)
+        trelloInjector.trelloActionPresenter(this, project)
     }
 
     init {
