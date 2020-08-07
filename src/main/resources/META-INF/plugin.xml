@@ -17,6 +17,8 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
 
+        <projectConfigurable instance="org.example.myplugin.settings.TrelloSettings" />
+
         <projectService serviceImplementation="org.example.myplugin.services.TrelloService" />
     </extensions>
 

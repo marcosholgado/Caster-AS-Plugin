@@ -7,8 +7,8 @@ data class Card(val id: String, val name: String, val desc: String) {
 }
 
 data class TrelloState(
-    var apiKey: String = "My api key here",
-    var token: String = "My token here",
-    var fromListId: String = "My from list ID here",
-    var toListId: String = "My to list ID here"
+    var apiKey: String = "",
+    var token: String = "",
+    var fromListId: String = "",
+    var toListId: String = ""
 )
