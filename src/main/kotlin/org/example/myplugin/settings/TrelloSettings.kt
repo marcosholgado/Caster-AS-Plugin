@@ -5,6 +5,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.ui.layout.panel
 import org.example.myplugin.actions.trello.TrelloState
 import org.example.myplugin.services.TrelloService
+import org.example.myplugin.utils.StringsBundle
 import javax.swing.JComponent
 import javax.swing.JPanel
 import javax.swing.JPasswordField
@@ -22,15 +23,15 @@ class TrelloSettings(private val project: Project): Configurable, DocumentListen
     private val fromListIdField: JTextField = JTextField()
     private val toListIdField: JTextField = JTextField()
     private val panel: JPanel = panel{
-        row("API key") { apiKeyField() }
-        row("Token") { tokenField() }
-        row("From List Id") { fromListIdField() }
-        row("To List Id") { toListIdField() }
+        row(StringsBundle.string("settings.api")) { apiKeyField() }
+        row(StringsBundle.string("settings.token")) { tokenField() }
+        row(StringsBundle.string("settings.fromList")) { fromListIdField() }
+        row(StringsBundle.string("settings.toList")) { toListIdField() }
     }
 
     override fun isModified(): Boolean = modified
 
-    override fun getDisplayName(): String = "Trello Settings"
+    override fun getDisplayName(): String = StringsBundle.string("settings.name")
 
     override fun apply() {
         state.apiKey = String(apiKeyField.password)

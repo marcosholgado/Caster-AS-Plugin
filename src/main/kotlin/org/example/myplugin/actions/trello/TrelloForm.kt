@@ -8,6 +8,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.openapi.ui.DialogWrapper
 import com.intellij.ui.layout.panel
+import org.example.myplugin.utils.StringsBundle
 import java.awt.Dimension
 import javax.swing.*
 
@@ -50,10 +51,10 @@ class TrelloForm(
     }
 
     override fun createCenterPanel(): JComponent? = panel {
-        row("Name: ") {
+        row(StringsBundle.string("trello.name")) {
             nameCombo(grow)
         }
-        row("Description:") {
+        row(StringsBundle.string("trello.description")) {
             descriptionPane()
         }
     }.apply {
@@ -77,8 +78,8 @@ class TrelloForm(
         ApplicationManager.getApplication().invokeLater {
             val notificationGroup = NotificationGroup("success", NotificationDisplayType.BALLOON, true)
             notificationGroup.createNotification(
-                "Success",
-                "Card move to the new list",
+                    StringsBundle.string("success"),
+                    StringsBundle.string("trello.cardMoved"),
                 NotificationType.INFORMATION,
                 null
             ).notify(project)
@@ -89,7 +90,7 @@ class TrelloForm(
         ApplicationManager.getApplication().invokeLater {
             val notificationGroup = NotificationGroup("error", NotificationDisplayType.BALLOON, true)
             notificationGroup.createNotification(
-                "Error",
+                    StringsBundle.string("error"),
                 error.localizedMessage,
                 NotificationType.ERROR,
                 null
