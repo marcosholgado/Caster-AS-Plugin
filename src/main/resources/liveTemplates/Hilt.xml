@@ -1,0 +1,9 @@
+<templateSet group="My Plugin">
+  <template name="hm" value="import dagger.Module&#10;import dagger.Provides&#10;import dagger.hilt.InstallIn&#10;&#10;@Module&#10;@InstallIn($COMPONENT_CLASS$::class)&#10;object $MODULE_CLASS$ {&#10;    @Provides&#10;    fun provideBar(): Bar { ... }&#10;}    " description="Creates a new Hilt module" toReformat="false" toShortenFQNames="true">
+    <variable name="COMPONENT_CLASS" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE_CLASS" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="MyPlugin" value="true"/>
+    </context>
+  </template>
+</templateSet>

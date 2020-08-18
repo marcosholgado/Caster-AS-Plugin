@@ -16,6 +16,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
+        <defaultLiveTemplates file="/liveTemplates/Hilt.xml" />
+        <liveTemplateContext implementation="org.example.myplugin.liveTemplates.HiltContext" />
 
         <projectConfigurable instance="org.example.myplugin.settings.TrelloSettings" />
 
