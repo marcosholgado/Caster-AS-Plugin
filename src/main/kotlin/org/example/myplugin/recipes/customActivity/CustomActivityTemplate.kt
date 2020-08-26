@@ -60,7 +60,8 @@ object CustomActivityTemplate: Template {
         get() = "Custom Activity"
     override val recipe: Recipe
         get() = {
-
+            customActivityRecipe(it as ModuleTemplateData, activityClass.value, isLauncher.value, generateLayout.value, addHilt.value,
+            layoutName.value, packageName.value)
         }
     override val revision: Int
         get() = 1

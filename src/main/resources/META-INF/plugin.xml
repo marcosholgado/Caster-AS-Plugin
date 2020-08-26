@@ -24,6 +24,10 @@
         <projectService serviceImplementation="org.example.myplugin.services.TrelloService" />
     </extensions>
 
+    <extensions defaultExtensionNs="com.android">
+        <tools.idea.wizard.template.wizardTemplateProvider implementation="org.example.myplugin.recipes.CustomWizardTemplateProvider" />
+    </extensions>
+
     <actions>
         <action
                 class="org.example.myplugin.actions.trello.TrelloAction"
