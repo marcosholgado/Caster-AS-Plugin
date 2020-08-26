@@ -3,8 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'caster.io'
+version '1.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -32,6 +32,11 @@ intellij {
     plugins = ['Kotlin', 'android']
     localPath '/Applications/Android Studio Preview.App/Contents'
 }
+
+publishPlugin {
+    token 'yourtokenhere'
+}
+
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
@@ -40,6 +45,6 @@ compileTestKotlin {
 }
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+      This is the first version of the plugin for the caster.io course building a
+      plugin for Android Studio."""
 }

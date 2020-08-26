@@ -1,11 +1,11 @@
 <idea-plugin>
-    <id>org.example.MyPlugin</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <id>caster.io.MyPlugin</id>
+    <name>Caster IO test plugin</name>
+    <vendor email="marcosholgado@yourcompany.com" url="http://www.caster.io">Caster IO</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    This is the plugin for the caster.io course<br>
+    building a plugin for Android Studio.
     ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
